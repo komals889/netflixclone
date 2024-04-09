@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style rel="stylesheet" href="./style.css">
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow-x: hidden;            
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+        }
+        .back-img{
+            width: 100%;
+            height: 100vh;         
+        } 
+        .back-img-class{
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+        }
+
+        .navbar{
+            position: fixed;
+            top: 0;
+            left: 1%;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 98%;
+            padding: 20px 0px;
+            z-index: 99;
+        }
+        .navbar .nav-name{
+            color: rgba(216, 31, 38, 1);
+            font-size: 18px;   
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;          
+        }
+        .navbar .nav-menu{
+            display: flex;
+            margin: 0px 20px;
+            align-items: center;
+        }
+        .navbar .nav-menu div{
+            margin: 0px 20px;
+        }
+        .nav-icon{
+            display: flex;
+            margin: 0px 20px;
+        }
+        .nav-icon div{
+            margin: 0px 10px;
+        }   
+        .navbar-menu{
+            display: flex;
+        }      
+       .menu-name{
+            text-decoration: none;
+            cursor: pointer;
+            color: white;
+            /* font-size: 12px; */
+            font-family: sans-serif;
+            margin: 0px 10px;
+        }
+        .nav-icon div img{
+            width: 21px;
+            height: 21px;
+            cursor: pointer;
+        }
+        .side-container{
+            position: absolute;
+            top: 14%;
+            left: 4%;
+            width: 30%;
+        }
+        .side-container-description{
+           color: white;
+           /* font-size: 12px; */
+           margin-top: 5px;
+           font-family: sans-serif;
+        }
+        .side-container-button{
+            margin-top: 5px;
+            display: flex;
+            gap: 2%;
+            font-family: sans-serif;
+        }
+        .side-container-button-play{
+            background: rgba(255, 255, 255, 1);
+            padding: 5px 10px;
+            font-size: 10px;
+            border:none;
+            border-radius: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            cursor: pointer;
+        }
+        .side-container-button-more{
+            background: rgba(105, 106, 106, 0.7);
+            padding: 5px 10px;
+            font-size: 10px;
+            border:none;
+            border-radius: 2px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            cursor: pointer;
+        }
+        .down-container{
+            color: white;
+            margin-top: -6%;  
+            /* position: relative;  */
+            width: 99%;
+            margin-left: auto;         
+        }
+        .slider-container{
+            width: 100%;
+            /* margin-top: -6%; */
+        }
+        .container-slider{
+            width: 99%; 
+            margin: -20px 0px auto;             
+        }
+        .container-slider-card{
+            width: 180px;
+            height: 140px;
+            margin-right:10px;  
+            transition: transform 0.3s ease-in-out;     
+            cursor: pointer;     
+        } 
+        .container-slider-card:hover{
+            transform: translateY(-5px);
+        }
+        .container-slider-card img{
+            height: 100%;
+            width: 100%;
+        }   
+        .slider-container-title{
+            width: 99%;
+            margin: 10px 0px auto;
+            color: white;
+            font-family: sans-serif;
+        }     
+        .container-slider-inner-card{
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+        }
+        .container-slider-wrapper{
+            display: flex;
+            flex-direction: row;
+        }
+        @media only screen and (max-width:956px) {
+            .navbar-menu{
+                display: none;
+            }
+            .back-img{
+                height: 60vh;
+            }
+            .nav-icon div img{
+                width: 30px;
+                height: 30px;
+            }
+            .navbar .nav-name{
+                font-size: 39px;
+            }
+            .side-container{
+                position: absolute;
+                top: 11%;
+                left: 5%;
+                width: 48%;
+            }
+            .side-container-description {
+                font-size: 20px;
+            }
+            .side-container-button-play {
+                padding: 13px 27px;
+                font-size: 21px;
+                gap: 6px;
+            }
+            .side-container-button-more{
+                padding: 13px 27px;
+                font-size: 21px;
+                gap: 6px;
+            }
+            .side-container-button-play img{
+                width: 20px;
+            }
+            .side-container-button-more img{
+                width: 20px;
+            }
+        }
+        @media only screen and (max-width:596px){
+            .back-img{
+                height:58vh
+            }
+            .side-container{
+                position: absolute;
+                top: 13%;
+                left: 10%;
+                width: 80%;
+            }
+            .side-container-description{
+                font-size: 16px;
+            } 
+            .side-container-button-play {
+                padding: 5px 15px;
+                font-size: 18px;
+                gap: 4px;
+            }
+            .side-container-button-more {
+                padding: 5px 15px;
+                font-size: 18px;
+                gap: 4px;
+            }
+        }
+        @media only screen and (max-width:450px ){
+            .back-img {
+                height: 48vh;
+            }
+            .navbar .nav-name {
+                font-size: 21px;
+            }
+            .side-container-description{
+                font-size: 11px;
+            } 
+            .side-container-button-play {
+                padding: 5px 15px;
+                font-size: 11px;
+                gap: 4px;
+            }
+            .side-container-button-more {
+                padding: 5px 15px;
+                font-size: 11px;
+                gap: 4px;
+            }
+            .side-container-button-more img{
+                width: 10px;
+            }
+            .side-container-button-play img{
+                width: 10px;
+            }
+            .nav-icon div img{
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+            }
+            .nav-icon div {
+                margin: 0px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">        
+        <div class="back-img">
+            <img src="./background.jpg" alt="" width="100%" height="100%" class="back-img-class">
+            <div class="navbar">
+                <div class="nav-menu">
+                    <div class="nav-name">NETFLIX</div>
+                    <div class="navbar-menu">
+                        <a href="#" class="menu-name"> Home </a> 
+                        <a href="#" class="menu-name"> Tv Shows </a> 
+                        <a href="#" class="menu-name"> Movies </a> 
+                        <a href="#" class="menu-name"> News & Player </a> 
+                        <a href="#" class="menu-name"> My List </a> 
+                        <a href="#" class="menu-name"> Browse by Language </a>                       
+                    </div>
+                </div>
+                <div class="nav-icon">
+                        <div><a href="#"><img src="./search.svg" alt=""></a></div>
+                        <div><a href="#"><img src="./bell.svg" alt=""></a></div>
+                        <div><a href="#"><img src="./Frame.svg" alt=""></a></div>
+                </div>
+            </div>
+            <div class="side-container">
+                <div class="side-container-title"> 
+                    <div><img src="./desc.svg" alt="" width="80%"></div>
+                    <div><img src="./title.svg" alt="" width="45%"></div>
+                </div>
+                <div class="side-container-description">When a father and daughter discover they both secretly work for the CIA, an already dicey undercover mission turns into a dysfunctional family affair.  </div>
+                <div class="side-container-button">
+                    <div class="side-container-button-play"><img src="./play.svg" alt="" width="20%"> Play</div>
+                    <div class="side-container-button-more"><img src="./info.svg" alt="" width="20%">More Info</div>
+                </div>
+            </div>
+        </div>
+        <div class="down-container">
+            <div class="slider-container">
+                <div class="slider-container-title">
+                    <h4>Retro Tv</h4>
+                </div>
+                <div class="container-slider"> 
+                    <div class="container-slider-inner-card">
+                        <div class="container-slider-wrapper">
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie1.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie2.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie3.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie6.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>  
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie6.svg" alt="">                        
+                            </div>              
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <img src="./retro/Movie4.svg" alt="">                        
+                    </div>                -->
+                </div>
+            </div>
+            <div class="slider-container">
+                <div class="slider-container-title">
+                    <h4>Trending Now</h4>
+                </div>
+                <div class="container-slider"> 
+                    <div class="container-slider-inner-card">
+                        <div class="container-slider-wrapper">
+                            <div class="container-slider-card">
+                                <img src="./Trending/Movie.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./Trending/Movie1.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./Trending/Movie2.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./Trending/Movie3.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./Trending/Movie4.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./Trending/Movie5.svg" alt="">                        
+                            </div>  
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie6.svg" alt="">                        
+                            </div>              
+                            <div class="container-slider-card">
+                                <img src="./Trending/Movie5.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./Trending/Movie5.svg" alt="">                        
+                            </div>                 
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <img src="./retro/Movie4.svg" alt="">                        
+                    </div>                -->
+                </div>
+            </div>
+            <div class="slider-container">
+                <div class="slider-container-title">
+                    <h4>Original on Netflix</h4>
+                </div>
+                <div class="container-slider"> 
+                    <div class="container-slider-inner-card">
+                        <div class="container-slider-wrapper">
+                            <div class="container-slider-card">
+                                <img src="./only/Movie.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./only/Movie1.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./only/Movie2.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./only/Movie3.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./only/Movie4.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./only/Movie5.svg" alt="">                        
+                            </div>  
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie6.svg" alt="">                        
+                            </div>              
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./only/Movie5.svg" alt="">                        
+                            </div>                
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <img src="./retro/Movie4.svg" alt="">                        
+                    </div>                -->
+                </div>
+            </div>
+            <div class="slider-container">
+                <div class="slider-container-title">
+                    <h4>Continue Watching</h4>
+                </div>
+                <div class="container-slider"> 
+                    <div class="container-slider-inner-card">
+                        <div class="container-slider-wrapper">
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie1.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie2.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie3.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie4.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie5.svg" alt="">                        
+                            </div>  
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie4.svg" alt="">                        
+                            </div>              
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie5.svg" alt="">                        
+                            </div>                 
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <img src="./retro/Movie4.svg" alt="">                        
+                    </div>                -->
+                </div>
+            </div>
+            <div class="slider-container">
+                <div class="slider-container-title">
+                    <h4>New Releases</h4>
+                </div>
+                <div class="container-slider"> 
+                    <div class="container-slider-inner-card">
+                        <div class="container-slider-wrapper">
+                            <div class="container-slider-card">
+                                <img src="./new/Movie.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./new/Movie1.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./new/Movie2.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./new/Movie3.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./new/Movie4.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./new/Movie5.svg" alt="">                        
+                            </div>  
+                            <div class="container-slider-card">
+                                <img src="./new/Movie4.svg" alt="">                        
+                            </div>              
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie5.svg" alt="">                        
+                            </div>                 
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <img src="./retro/Movie4.svg" alt="">                        
+                    </div>                -->
+                </div>
+            </div>
+            <div class="slider-container">
+                <div class="slider-container-title">
+                    <h4>Popular on Netflix</h4>
+                </div>
+                <div class="container-slider"> 
+                    <div class="container-slider-inner-card">
+                        <div class="container-slider-wrapper">
+                            <div class="container-slider-card">
+                                <img src="./popular/Movie.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./popular/Movie1.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./popular/Movie2.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./popular/Movie3.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./popular/Movie4.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./popular/Movie5.svg" alt="">                        
+                            </div>  
+                            <div class="container-slider-card">
+                                <img src="./popular/Movie1.svg" alt="">                        
+                            </div>              
+                            <div class="container-slider-card">
+                                <img src="./continue/Movie5.svg" alt="">                        
+                            </div>                 
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                            <div class="container-slider-card">
+                                <img src="./retro/Movie5.svg" alt="">                        
+                            </div>               
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <img src="./retro/Movie4.svg" alt="">                        
+                    </div>                -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
